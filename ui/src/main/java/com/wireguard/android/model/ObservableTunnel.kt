@@ -79,7 +79,7 @@ class ObservableTunnel internal constructor(
         else
             CompletableFuture.completedFuture(config)
 
-    suspend fun getConfigDeferred(): Deferred<Config> {
+    suspend fun getConfigAsync(): Deferred<Config> {
         return if (config == null)
             manager.getTunnelConfigAsync(this)
         else
